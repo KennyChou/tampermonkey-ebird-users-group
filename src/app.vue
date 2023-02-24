@@ -127,7 +127,11 @@ export default {
       this.editMode=false
     },
     shareGroup(ebirdIds){
-      document.getElementById('share-recipients').value=ebirdIds
+      let data=[]
+      if(document.getElementById('share-recipients').value.split(',')!='')
+        data=document.getElementById('share-recipients').value.split(',').map(item => item.trim())
+      data=data.concat(ebirdIds.split(',').filter(item=> !data.includes(item)))
+      document.getElementById('share-recipients').value=data.join(',')
     }
   },
 }
