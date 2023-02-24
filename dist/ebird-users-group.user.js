@@ -2,7 +2,7 @@
 // @name         ebird-users-group
 // @namespace    https://kennychou.github.io/2022/05/04/TamperMonkey-for-eBird-%E8%85%B3%E6%9C%AC/
 // @version      1.0.0
-// @description  ebird Users Group
+// @description  eBird Share from group
 // @author       Kenny Chou
 // @grant        GM_getValue
 // @grant        GM_setValue
