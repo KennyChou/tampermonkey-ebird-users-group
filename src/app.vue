@@ -7,19 +7,19 @@
         </span>
         <div id="share-group" class="u-stack-sm" style="background-color: white; max-height: 8rem; overflow-y:auto; box-shadow: inset 0 1px 2px rgba(33,33,33,.1); border: 1px solid #d3d3d3;">
           <template v-if="groups.length==0">
-            <a class="u-inset-squish-sm" style="display:block; border-bottom: 1px solid #efefef;" @click="addAll" href="#">全部成員</a>
+            <a class="u-inset-squish-sm" style="display:block; border-bottom: 1px solid #efefef;" @click="addAll" href="#share-recipients">全部成員</a>
           </template>
           <template v-else>
             <template v-for="(group, idx) in groups">
               <span class="u-inset-squish-sm" style="display: block; border-bottom: 1px solid #efefef;">
-                <a @click="shareGroup(group.ebirdIds)" href="#">{{ group.name }}</a>
-                <a @click="editGroup(idx)" style="float: right;" href="#">編輯</a>
+                <a @click="shareGroup(group.ebirdIds)" href="#share-recipients">{{ group.name }}</a>
+                <a @click="editGroup(idx)" style="float: right;" href="#share-groups-fieldset">編輯</a>
               </span>
             </template>
           </template>
           
         </div>
-        <p class="u-text-2"><a @click="editGroup(-1)" href="#">新增群組</a></p>
+        <p class="u-text-2"><a @click="editGroup(-1)" href="#share-groups-fieldset">新增群組</a></p>
       </div>
       <div id="user-group-editor" :hidden="!editMode">
         <span class="Heading Heading--h6" for="share-group">
@@ -27,10 +27,10 @@
         </span>
         <input class="u-text-2"  type="text" v-model="editData.name" />
         <span class="Heading-sub Heading-sub--inline">(用戶名稱或電子郵件地址，以逗號分隔)</span>
-        <textarea class="u-text-2" v-model="editData.ebirdIds"></textarea>
+        <textarea class="u-text-2" v-model="editData.ebirdIds" id="ebird-users-group"></textarea>
         <div id="share-contacts" class="u-stack-sm" style="background-color: white; max-height: 8rem; overflow-y:auto; box-shadow: inset 0 1px 2px rgba(33,33,33,.1); border: 1px solid #d3d3d3;">
           <template v-for="user in users">
-            <a class="u-inset-squish-sm" style="display:block; border-bottom: 1px solid #efefef;" @click="appendGroup(user)" href="#">{{ user.name }}</a>
+            <a class="u-inset-squish-sm" style="display:block; border-bottom: 1px solid #efefef;" @click="appendGroup(user)" href="#share-groups-fieldset">{{ user.name }}</a>
           </template>
         </div>
         <div class="ButtonGroup" style="margin-bottom: 20px;">
